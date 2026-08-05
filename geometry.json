@@ -1,0 +1,118 @@
+{
+    "model_name": "WeActStudio CH582F 2.4 GHz PCB IFA",
+    "revision": "photo-extracted-baseline-1",
+    "source_images": {
+        "top_high_resolution": "image(46).png",
+        "dimensioned_top_bottom": "image(44).png",
+        "side_thickness_reference": "image(45).png"
+    },
+    "coordinate_system": {
+        "x": "Across the board; centerline is 0 mm, left/right edges are -9.1/+9.1 mm when viewed from the top with antenna at the upper end.",
+        "y": "Along the board; antenna-end board edge is 0 mm and the USB end is -39 mm.",
+        "z": "Bottom copper is 0 mm; top copper is at the board thickness."
+    },
+    "board_mm": {
+        "width_x": 18.2,
+        "length_y": 39.0,
+        "thickness_z": 1.6
+    },
+    "materials": {
+        "substrate": "FR-4",
+        "epsilon_r_baseline": 4.2,
+        "loss_tangent_baseline": 0.02,
+        "copper_thickness_mm": 0.035,
+        "em_model_metal": "zero-thickness PEC surfaces for the first-order baseline"
+    },
+    "photo_calibration": {
+        "description": "Projective calibration from sixteen 2.54 mm-pitch header holes in the high-resolution top photograph.",
+        "pixel_to_local_mm_homography": [
+            [0.0241713680, 0.000505750138, -2.96299431],
+            [-0.000670084557, 0.0246422008, -1.27380181],
+            [0.00000131066168, 0.00000833683790, 1.0]
+        ],
+        "header_row_separation_mm": 15.24,
+        "header_pitch_mm": 2.54,
+        "mean_control_point_residual_mm": 0.029,
+        "maximum_control_point_residual_mm": 0.092,
+        "antenna_end_edge_local_y_mm": 27.35,
+        "board_center_local_x_mm": 7.62,
+        "estimated_trace_edge_uncertainty_mm": 0.08
+    },
+    "antenna": {
+        "description": "Top-layer exposed ENIG copper polygon traced from the high-resolution photograph. The two roots are the narrow RF-feed branch and the wider grounded short branch.",
+        "top_polygon_xy_mm": [
+            [6.7625, -6.4125],
+            [5.9750, -6.5125],
+            [5.7000, -6.2625],
+            [5.7875, -3.6375],
+            [5.6875, -3.5500],
+            [5.6750, -1.2000],
+            [5.0250, -1.2375],
+            [5.0625, -6.4125],
+            [4.5250, -6.5000],
+            [4.3750, -6.2750],
+            [4.4000, -1.2375],
+            [3.0125, -1.2500],
+            [3.0500, -3.7250],
+            [2.8750, -3.9500],
+            [0.2500, -3.9000],
+            [0.1250, -1.2125],
+            [-0.9625, -1.1500],
+            [-1.1000, -1.2500],
+            [-1.1250, -3.8375],
+            [-2.7875, -3.9125],
+            [-3.9125, -3.8250],
+            [-3.9875, -1.2250],
+            [-5.1125, -1.1250],
+            [-5.1500, -5.1000],
+            [-5.8000, -5.1000],
+            [-5.8000, -0.6000],
+            [-5.6500, -0.4500],
+            [-3.3875, -0.5125],
+            [-3.2875, -3.1625],
+            [-1.8125, -3.2375],
+            [-1.6750, -0.4625],
+            [0.7250, -0.5375],
+            [0.8375, -0.9500],
+            [0.8250, -3.2375],
+            [2.4000, -3.2500],
+            [2.4125, -0.6375],
+            [2.5125, -0.5125],
+            [6.7125, -0.6125]
+        ],
+        "feed_branch_center_xy_mm": [4.72, -6.55],
+        "short_branch_center_xy_mm": [6.25, -6.48]
+    },
+    "ground": {
+        "bottom_plane_xy_bounds_mm": [-9.1, 9.1, -39.0, -6.55],
+        "top_main_plane_xy_bounds_mm": [-9.1, 9.1, -39.0, -7.10],
+        "top_edge_left_xy_bounds_mm": [-9.1, 4.15, -7.10, -6.55],
+        "top_edge_right_xy_bounds_mm": [5.25, 9.1, -7.10, -6.55],
+        "feed_clearance_slot_xy_bounds_mm": [4.15, 5.25, -7.10, -6.20],
+        "feed_pad_xy_bounds_mm": [4.35, 5.10, -7.00, -6.20],
+        "short_bridge_xy_bounds_mm": [5.55, 6.90, -7.10, -6.20]
+    },
+    "stitching_vias": {
+        "description": "Primary ground-edge via fence extracted from the high-resolution top photograph.",
+        "center_y_mm": -6.60,
+        "center_x_mm": [
+            -7.47, -6.75, -6.10, -5.43, -4.78, -4.13,
+            -3.39, -2.77, -2.09, -1.42, -0.75, -0.10,
+            0.54, 1.22, 1.89, 2.51, 3.20, 3.92,
+            5.46, 6.06, 6.54, 7.47, 8.09, 8.88
+        ],
+        "drill_radius_mm_baseline": 0.15
+    },
+    "port": {
+        "type": "50 ohm vertical lumped port from the top feed pad to the bottom ground plane",
+        "center_xy_mm": [4.72, -6.73],
+        "size_xy_mm": [0.36, 0.36]
+    },
+    "important_assumptions": [
+        "The matte white antenna-shaped artwork on the bottom product photograph is treated as silkscreen, not copper. Only the top antenna polygon is conductive.",
+        "The exact solder-mask-obscured ground-pour voids and component traces cannot be recovered from photographs. The baseline therefore uses continuous top and bottom ground planes in the main board region, with a measured feed clearance and grounded short bridge at the antenna edge.",
+        "The RF matching components between the CH582 and the antenna are not included. S11 is referenced directly at the antenna feed root.",
+        "The primary ground-edge via fence is included explicitly. Farther-away ground vias and component pads are omitted from the first-order baseline.",
+        "The feed and short connections under solder mask are reconstructed from visible trace direction and standard inverted-F antenna topology."
+    ]
+}
